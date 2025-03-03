@@ -22,13 +22,13 @@ setPassword(pass)
 },
 [length,numberAllowed,charAllowed,setPassword,])
 const copyPasswordToClipboard=useCallback(()=>{  //callback only for optimization agr dependemcies h
-passwordRef.current?.select();
+passwordRef.current?.select();                   //callback not compulsory for every dependency
 passwordRef.current?.setSelectionRange(0,10);
   window.navigator.clipboard.writeText(password)
 }, 
 [password])
 
-useEffect(()=>{
+useEffect(()=>{ //use for re-render
   passwordGenerator()
 },
 [length,numberAllowed,charAllowed,setPassword,passwordGenerator])
